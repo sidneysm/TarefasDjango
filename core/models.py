@@ -9,5 +9,8 @@ class Tarefa(models.Model):
 	prazo = models.DateTimeField(default=timezone.now())
 	realizada = models.BooleanField()
 
+	def publish(self):
+		self.save()
+
 	def __str__(self):
-		return self.nome
+		return self.nome + self.descricao
